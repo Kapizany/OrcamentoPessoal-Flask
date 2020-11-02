@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+
+{% block conteudo %}
+
+    <div class="container">
+        <header class="header">
+            <i class="orcamento"> Orçamento Pessoal</i>
+        </header>
+
+
+            <div class="content col">
+                <nav class="navbar navbar-light">
+                    <li class="nav-item active">
+                        <a class="nav-link fa fa-home" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fa fa-exchange" href="#">Movimentações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fa fa-money" href="#">Pagar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fa fa-usd" href="#">Receber</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fa fa-bar-chart" href="#">Estatisticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fa fa-cog" href="#">Opções</a>
+                    </li>
+                </nav>
+
+                <div class="main-content">
+                    <form method="post">
+                        {{form_template.csrf_token}}
+                        <div class="row mb-6">
+                            <div class="col-md-10">
+                                <i class="title">Nova Conta:</i>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                {{form_template.data(class='form-control', placeholder="Data")}}
+                            </div>
+
+
+                            <div class="col-md-4">
+                              {{form_template.categoria(class='form-control')}}
+                            </div>
+
+                            <div class="col-md-4">
+                                {{form_template.tipo(class='form-control')}}
+                            </div>
+                        </div>
+
+                        <div class="row  mb-5">
+                            <div class="col-md-6">
+                              {{form_template.descricao(class='form-control', placeholder="Descrição")}}
+                            </div>
+
+                            <div class="col-md-3 ">
+                              {{form_template.valor(class='form-control', placeholder="Valor")}}
+                            </div>
+
+                            <div class="col-md-2 d-flex justify-content-end">
+                              <button class="btn nova-despesa" type="submit">
+                                <i class="fa fa-plus"></i>
+                              </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr />
+
+
+
+                </div>
+            </div>
+
+
+    </div>
+
+{% endblock conteudo %}
