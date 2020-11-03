@@ -6,15 +6,14 @@ class Movimentacao():
         self.__tipo = tipo
         self.__valor = valor
 
-    def to_json(self):
-        import json
-        return json.dumps({
-                            "descricao": self.__descricao,
-                            "data": str( self.__data),
-                            "categoria": self.__categoria,
-                            "tipo": self.__tipo,
-                            "valor": str(self.__valor)
-                        })
+    def to_dict(self):
+        return {
+                    'descricao': self.__descricao,
+                    'data': str( self.__data),
+                    'categoria': self.__categoria,
+                    'tipo': self.__tipo,
+                    'valor': float(self.__valor)
+                }
 
     @property
     def descricao(self):
