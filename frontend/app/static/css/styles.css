@@ -106,5 +106,5 @@ div.content nav li a::before{
 
 .content .main-content a.apagar::before{
     color: var(--font-color);
-    font-size: 2em;
+    font-size: 1.3em;
 }
