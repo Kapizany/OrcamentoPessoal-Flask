@@ -4,6 +4,7 @@ from app import app
 from app.forms import movimentacao_form
 from app.entidades import movimentacao
 from app.services import movimentacoes_service
+from app.utils import graficos
 
 @app.route("/home", methods=["GET", "POST"])
 def home():
@@ -35,3 +36,13 @@ def movimentacoes():
 def deletar_movimentacao(id):
     movimentacoes_service.remover_movimentacao(id)
     return redirect(url_for("movimentacoes"))
+
+@app.route("/estatisticas", methods=["GET"])
+def estatisticas():
+    movimentacoes_bd = movimentacoes_service.listar_movimentacoes()
+    graph_service = graficos.Graficos(movimentacoes_bd)
+    caminho_bar = 'app/static/css/images/new_bar_plot.png'
+    caminho_pie = 'app/static/css/images/new_pie_plot.png'
+    graph_service.bar_chart(caminho_bar)
+    mes_ano = graph_service.pie_chart(caminho_pie)
+    return render_template('estatisticas.html', mes_ano=mes_ano)

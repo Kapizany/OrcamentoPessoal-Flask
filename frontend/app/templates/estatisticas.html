@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+{% block conteudo %}
+
+    <div class="container">
+        <header class="header">
+            <i class="orcamento"> Orçamento Pessoal</i>
+        </header>
+
+
+            <div class="content col">
+                <nav class="navbar navbar-light">
+                    <li class="nav-item">
+                        <a class="nav-link fa fa-home" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fa fa-exchange" href="/movimentacoes">Movimentações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fa fa-money" href="#">Pagar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fa fa-usd" href="#">Receber</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link fa fa-bar-chart" href="#">Estatisticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fa fa-cog" href="#">Opções</a>
+                    </li>
+                </nav>
+
+                <div class="main-content">
+
+                    <div class="row mb-6">
+                        <div class="col-md-10">
+                            <i class="title">Estatisticas:</i>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="estatisticas-graficos">
+                        <h1>Gastos no mês {{mes_ano}}</h1>
+                        <img src="{{ url_for('static', filename ='css/images/new_pie_plot.png') }}" alt="Chart" height="640" width="860">
+
+                        <h1>Gastos nos ultimos três meses</h1>
+                        <img src="{{ url_for('static', filename ='css/images/new_bar_plot.png') }}" alt="Chart" height="640" width="640">
+
+                    </div>
+
+                </div>
+            </div>
+
+
+    </div>
+
+{% endblock conteudo %}

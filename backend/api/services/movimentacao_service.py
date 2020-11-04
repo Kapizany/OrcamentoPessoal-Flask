@@ -12,7 +12,7 @@ def cadastrar_movimentacao(movimentacao):
     return movimentacao_bd
 
 def listar_movimentacoes():
-    movimentacoes = movimentacao_model.Movimentacao.query.all()
+    movimentacoes = movimentacao_model.Movimentacao.query.order_by(movimentacao_model.Movimentacao.data).all()
     return movimentacoes
 
 def listar_movimentacao_id(id):

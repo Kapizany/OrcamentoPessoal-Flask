@@ -108,3 +108,7 @@ div.content nav li a::before{
     color: var(--font-color);
     font-size: 1.3em;
 }
+
+.content .main-content .estatisticas-graficos{
+    text-align: center;
+}
